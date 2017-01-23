@@ -117,22 +117,35 @@ public class SeamCarver {
      * All the following methods only deal with not transposed picture,
      * so if the picture has been transposed, transpose it back
      */
+
+    /**
+     * Find the vertical seam with lowest energy
+     */
     public int[] findVerticalSeam() {
         if (transposed) transpose();
         return findSeam();
     }
 
+    /**
+     * Find the horizontal seam with lowest energy, but deal with the transposed picture
+     */
     public int[] findHorizontalSeam() {
         if (!transposed) transpose();
         return findSeam();
     }
 
+    /**
+     * Remove the vertical seam with lowest energy
+     */
     public void removeVerticalSeam(int[] seam) {
         if (seam == null) throw new NullPointerException();
         if (transposed) transpose();
         removeSeam(seam);
     }
 
+    /**
+     * Remove the horizontal seam with lowest energy, but deal with the transposed picture
+     */
     public void removeHorizontalSeam(int[] seam) {
         if (seam == null) throw new NullPointerException();
         if (!transposed) transpose();
