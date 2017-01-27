@@ -24,7 +24,7 @@ public class SeamCarver {
         width = picture.width();
         height = picture.height();
         arrayWidth = width;
-        this.picture = picture;
+        this.picture = new Picture(picture);
         pixels = new int[height * width];
         energies = new double[width * height];
         for (int row = 0; row < height; row++) {
