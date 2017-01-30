@@ -154,10 +154,11 @@ public class SeamCarver {
 
     /**
      * Use DP or Shortest Paths to find the lowest accumulated energy pixel in the bottom row,
-     * record the pixel directed to the current pixel in 'from' array just 'edgeTo' in Graphs,
+     * record the pixel directed to the current pixel in 'from' array just like 'edgeTo' in Graphs,
      * then rebuild the path from top row to bottom row with 'from' array.
      */
     private int[] findSeam() {
+        // use two rows (but in one array) to record the previous and current rows of accumulation.
         double[] cumulatedE = new double[width * 2];
         int[] from = new int[width * height];
         int curRow, preRow;
